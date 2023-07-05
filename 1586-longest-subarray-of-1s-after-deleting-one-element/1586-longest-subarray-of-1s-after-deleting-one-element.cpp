@@ -2,23 +2,27 @@ class Solution {
 public:
     int longestSubarray(vector<int>& nums) {
         int n = nums.size();
+     
+        int i=0;
+        int j=0;
 
-        int left = 0;
-        int zeros = 0;
-        int ans = 0;
+        int last_zero_index_at = -1;
+        int result=0;
 
-        for (int right = 0; right < n; right++) {
-            if (nums[right] == 0) {
-                zeros++;
+        while(j<n)
+        {
+            if(nums[j]==0){
+                i = last_zero_index_at + 1;
+                last_zero_index_at = j;
             }
-            while (zeros > 1) {
-                if (nums[left] == 0) {
-                    zeros--;
-                }
-                left++;
-            }
-            ans = max(ans, right - left + 1 - zeros);
+
+            result = max(result, j-i);  
+            j++;
+// j-i+1 is the window size normally but as
+// here we must always delete one element hence sisze will be j-i
         }
-        return (ans == n) ? ans - 1 : ans;
+     
+     return result;
+       
     }
 };
