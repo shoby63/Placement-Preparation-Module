@@ -1,7 +1,8 @@
 class Solution {
 public:
     string reverseWords(string s) {
-    
+    // TC = O(n)
+    // SC = O(1)
     int n = s.length();
     
      //phle poori string reverse karenge
