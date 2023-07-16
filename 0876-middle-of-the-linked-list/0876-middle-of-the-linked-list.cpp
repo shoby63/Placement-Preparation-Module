@@ -11,7 +11,27 @@
 class Solution {
 public:
     ListNode* middleNode(ListNode* head) {
-		// to calculate the length of the linked list
+        
+        
+        // TC = O(n)
+        // SC = O(1)
+        
+         ListNode * slow= head;
+          ListNode *fast= head;
+
+         while(fast != NULL && fast->next != NULL)
+         { 
+            slow=slow->next;
+            fast=fast->next->next;
+
+         }
+         return slow;
+
+        
+/*        
+<--------------------------------------------2nd approach------------------------------------------------>
+
+		 to calculate the length of the linked list
         int size = 0;
         
 		// taking a copy of head
@@ -38,5 +58,6 @@ public:
         }
         
         return head;
+*/
     }
 };
