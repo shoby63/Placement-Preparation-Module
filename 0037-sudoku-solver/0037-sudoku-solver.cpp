@@ -1,3 +1,5 @@
+  // TC = O(9(n ^ 2))   SC = O(1), since we are refilling the given board itself, there is no extra space required, so constant space complexity.
+
 class Solution {
 public:
     bool isSafe(vector<vector<char>>& board, int row, int col, char c){
